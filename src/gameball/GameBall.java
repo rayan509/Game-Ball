@@ -72,7 +72,9 @@ public class GameBall extends JFrame implements ActionListener,MouseMotionListen
          
             public void BallMove(){
                
-              ball.x+=dx;
+               new Thread(){
+                  public void run(){
+                              ball.x+=dx;
               ball.y+=dy;
               if(ball.x> getWidth()-50){
               dx=-dx;
@@ -92,6 +94,8 @@ public class GameBall extends JFrame implements ActionListener,MouseMotionListen
               dy=-dy;
               Score+=10;
               }
+                  }
+            }.start();
             }
   
       
